@@ -34,8 +34,7 @@
       
       </l-moving-rotated-marker>
     </v-map>
-
-    <span onclick='alert()'><i class='material-icons popup_icon' styles='font-size: 40px;'>dashboard</i></span>
+    
     <button v-on:click='start()'>Start</button>
     <button v-on:click='stop("esta es uan prueba")'>Stop</button>
     <div>{{ message }}</div>
@@ -84,9 +83,10 @@ for (let i = 0; i < 10; i++) {
     id: i,
     latlng: L.latLng(lat, lon),
     text: `<div>
-            <div><b>Moving Marker #" + i + "</b></div><div>
+            <div><b>Moving Marker #` + i + `</b></div><div>
             <b>Address:</b> Calle de la Granja de San idelfonso, 38.</div>
             <div><b>Driver:</b> Roger Zavarce.</div>
+            <div><b>Details</b></div>
             <div>
               <span onclick='alert()'><i class='material-icons popup_icon' style='font-size:30px; margin:5px; color:green;' onmouseover='this.style.color=\"orange\"; this.style.cursor=\"pointer\";' onmouseout='this.style.color=\"green\"' >visibility</i></span> 
               <span onclick='alert()'><i class='material-icons popup_icon' style='font-size:30px; margin:5px; color:green;' onmouseover='this.style.color=\"orange\"; this.style.cursor=\"pointer\";' onmouseout='this.style.color=\"green\"' >directions</i></span> 
@@ -121,7 +121,8 @@ export default {
     LMovingRotatedMarker,
     LControl,
     LControlFullscreen,
-    'v-locatecontrol': Vue2LeafletLocatecontrol
+    'v-locatecontrol': Vue2LeafletLocatecontrol,
+    
   },
   props: {
     duration: { type: Number, default: 2000 },
@@ -229,9 +230,8 @@ export default {
       locations,
       fitBounds: [],
       icon,
-      //TODO: CAMBIAR ESTO Y PONERLO EN EL ARCHIVO DE CONFIGURACION
-      map_server_url: "http://{s}.tile.osm.org/{z}/{x}/{y}.png",
-      attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors',
+      map_server_url: process.env.ENV_SERVER_MAP_URL,
+      attribution: process.env.ENV_MAP_ATTIBUTIONS,
       interval: null,
       message: null
 
@@ -266,7 +266,7 @@ export default {
 @import "https://unpkg.com/leaflet@1.4.0/dist/leaflet.css";
 
 .leaflet-container {
-  height: 95vh;
+  height: 90vh;
 }
 
 

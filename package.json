@@ -25,6 +25,7 @@
     "vue-echarts-v3": "^2.0.1",
     "vue-i18n": "^8.0.0",
     "vue-native-websocket": "^2.0.14",
+    "vue-status-indicator": "^1.2.1",
     "vue2-leaflet": "^2.7.1",
     "vue2-leaflet-fullscreen": "^1.0.1",
     "vue2-leaflet-locatecontrol": "^1.0.2",

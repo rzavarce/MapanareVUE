@@ -11,6 +11,7 @@
         @click="drawer = !drawer"
         icon="menu"
         aria-label="Menu"
+        title="All Menu Toggle"
         />
 
 
@@ -25,18 +26,18 @@
         </div>
         <q-space/>
         <div class="q-gutter-sm row items-center no-wrap">
+          <status-indicator status="active" title="Websockets Indicator" style="height:20px; width: 20px;" />
           <q-btn round dense flat color="white" :icon="$q.fullscreen.isActive ? 'fullscreen_exit' : 'fullscreen'"
-          @click="$q.fullscreen.toggle()"
-          v-if="$q.screen.gt.sm">
+          @click="$q.fullscreen.toggle()" v-if="$q.screen.gt.sm" title="Full-Sreen App">
         </q-btn>
-        <q-btn round dense flat color="white" icon="fab fa-github" type="a" href="https://github.com/pratik227/quasar-admin" target="_blank">
+        <q-btn round dense flat color="white" icon="fab fa-github" type="a" href="https://github.com/rzavarce/MapanareVue" target="_blank"  title="Go to Github Repo">
         </q-btn>
-        <q-btn round dense flat icon="fas fa-heart" style="color:#9d4182 !important;" type="a" href="https://github.com/sponsors/pratik227" target="_blank">
+        <q-btn round dense flat icon="fas fa-heart" style="color:#9d4182 !important;" type="a" href="http://mapanare.es" target="_blank" title="Visit website project">
         </q-btn>
 
 
 
-        <q-btn round dense flat color="white" icon="notifications">
+        <q-btn round dense flat color="white" icon="notifications" title="Notifications">
           <q-badge color="red" text-color="white" floating>
             5
           </q-badge>
@@ -52,7 +53,7 @@
         </q-menu>
       </q-btn>
 
-      <q-btn round flat>
+      <q-btn round flat title="Select languajes">
         <q-avatar size="26px">
           <img src="../assets/languajes/es.svg">
         </q-avatar>
@@ -76,7 +77,7 @@
       </q-menu>
     </q-btn>
 
-    <q-btn round flat>
+    <q-btn round flat title="User Profile">
       <q-avatar size="26px">
         <img src="https://cdn.quasar.dev/img/boy-avatar.png">
       </q-avatar>
@@ -146,7 +147,7 @@
       </q-menu>
     </q-btn>
 
-    <q-btn flat @click="drawerRight = true" round dense icon="menu_open" />
+    <q-btn flat @click="drawerRight = true" round dense icon="menu_open" title="Activity Timelog" />
 
   </div>
 </q-toolbar>
@@ -162,7 +163,6 @@ show-if-above
 :mini="!drawer || miniState"
 @mouseover="showMiniSite"
 @mouseout="hideMiniSite"
-
 
 :width="300"
 :breakpoint="500"
@@ -185,6 +185,7 @@ content-class="bg-primary text-white"
     checked-icon="check"
     unchecked-icon="clear"
     v-model="miniActive"
+    title="Minimenu toggle"
     />
 
   </q-toolbar>
@@ -395,6 +396,9 @@ import store from '../store';
 import Vue from 'vue';
 
 
+import { StatusIndicator } from 'vue-status-indicator';
+
+
 export default {
   data () {
     return {
@@ -410,6 +414,7 @@ export default {
   components: {
     Messages,
     CardTimeLine2: () =>  import('components/cards/CardTimeLine2'),
+    StatusIndicator,
   },
   created () {    
 

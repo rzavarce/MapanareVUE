@@ -72,6 +72,8 @@ module.exports = function (ctx) {
         ENV_GEOSERVER_URL:'http://0.0.0.0:10000/geoserver/api/v1',
         ENV_API_URL:'http://127.0.0.1:8000/api/v1',
         ENV_REPORTS_URL:'http://0.0.0.0:11000',
+        ENV_SERVER_MAP_URL: 'http://{s}.tile.osm.org/{z}/{x}/{y}.png',
+        ENV_MAP_ATTIBUTIONS: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors',
 
       },
 
